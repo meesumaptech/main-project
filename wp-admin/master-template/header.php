@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION['name'])=="")
+{
+    header("Location:login");
+}
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -465,7 +475,7 @@
                     <img id="id-navbar-user-image" class="d-none d-lg-inline-block radius-round border-2 brc-white-tp1 mr-2 w-6" src="ace-admin/assets/image/avatar/avatar6.jpg" alt="Jason's Photo">
                     <span class="d-inline-block d-lg-none d-xl-inline-block">
                               <span class="text-90" id="id-user-welcome">Welcome,</span>
-                    <span class="nav-user-name">Jason</span>
+                    <span class="nav-user-name"><?php echo $_SESSION["name"]?></span>
                     </span>
 
                     <i class="caret fa fa-angle-down d-none d-xl-block"></i>

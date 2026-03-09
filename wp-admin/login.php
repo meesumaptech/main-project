@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION['name']))
+{
+    header("Location:index");
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -93,10 +104,10 @@
                         </div>
 
 
-                        <form autocomplete="off" class="form-row mt-4">
+                        <form autocomplete="off" method="POST" action="php/login" class="form-row mt-4">
                           <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                             <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
-                              <input placeholder="Username" type="text" class="form-control form-control-lg pr-4 shadow-none" id="id-login-username" />
+                              <input placeholder="Username" name="username" type="text" class="form-control form-control-lg pr-4 shadow-none" id="id-login-username" />
                               <i class="fa fa-user text-grey-m2 ml-n4"></i>
                               <label class="floating-label text-grey-l1 ml-n3" for="id-login-username">
                                 Username
@@ -107,7 +118,7 @@
 
                           <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
                             <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
-                              <input placeholder="Password" type="password" class="form-control form-control-lg pr-4 shadow-none" id="id-login-password" />
+                              <input placeholder="Password" name="password" type="password" class="form-control form-control-lg pr-4 shadow-none" id="id-login-password" />
                               <i class="fa fa-key text-grey-m2 ml-n4"></i>
                               <label class="floating-label text-grey-l1 ml-n3" for="id-login-password">
                                 Password
@@ -115,21 +126,13 @@
                             </div>
                           </div>
 
-
-                          <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-right text-md-right mt-n2 mb-2">
-                            <a href="ace-admin/#" class="text-primary-m1 text-95" data-toggle="tab" data-target="#id-tab-forgot">
-                              Forgot Password?
-                            </a>
-                          </div>
-
-
                           <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                             <label class="d-inline-block mt-3 mb-0 text-dark-l1">
                               <input type="checkbox" class="mr-1" id="id-remember-me" />
                               Remember me
                             </label>
 
-                            <button type="button" class="btn btn-primary btn-block px-4 btn-bold mt-2 mb-4">
+                            <button type="submit" name="btnlogin" class="btn btn-primary btn-block px-4 btn-bold mt-2 mb-4">
                               Sign In
                             </button>
                           </div>
